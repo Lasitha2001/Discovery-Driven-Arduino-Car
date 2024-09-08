@@ -1,37 +1,82 @@
-# **Discovery Driven Numerical, Material, Chromatic Exploration**
+# Assuming you're in the root directory of your Git repository
 
-###  _Suitable for age 5 - 12 years_ 
-###  _Charging the battery can only be operated by adults at all times_
-###  _Please keep this manual for future reference as it contains_
+# Create a new branch for the README update
+git checkout -b update-readme
 
-## About Our Product
+# Create the README.md file (or overwrite if it already exists)
+cat > README.md << EOL
+# Discovery-Driven-Arduino-Car
 
-### This project introduces an innovative and interactive educational hardware solution designed to captivate children's interest in the realms of science and in programmable tools for cognitive development, our initiative emphasizes the fusion of physical and digital elements, creating a dynamic learning experience. This game aims to deliver an entertaining and educational game for children, fostering early engagement with technology and introducing a fresh perspective on learning. Please read the manuals carefully before using this product. You can get correct operation method, simple and detailed installation procedure.
+This repository contains the Arduino code for controlling a **4-wheel drive car** using an **RC Receiver** and an **Arduino Uno**. The car is controlled via a **radio transmitter**, allowing smooth forward, backward, and turning movements using PWM signals.
 
-## Methodology
+## Features
 
-* The robotic car navigates to the object on the floor. 
-* The robotic arm grasps the object, performs necessary movements, and turns counterclockwise. 
-* The arm gently places the object onto the stage, allowing it to slide down an inclined plane to the sensing area. 
-* The object is identified and processed by various sensors in the sensing area. 
-* The processed information is sent to a web server, providing the game challenge to the user. After processing, the object is automatically removed via a gate at the end of the processing area.
+* **Wireless Control**: The car's movement is controlled wirelessly via a transmitter.
+* **Motor Control**: Left and right motors are controlled independently for accurate movement.
+* **PWM Speed Control**: The car uses pulse-width modulation (PWM) to adjust the motor speed based on the input from the transmitter.
 
-## How to play
+## Components
 
-* The game consists of 5 levels.
-* The game starts at Level 1. After completing Level 5, the game ends with a congratulatory message.
-* Follow the instructions provided in the website to complete each level.
-* Before starting a level, always make sure to place the boxes so that the white cross marks (X) on the boxes are facing up.
+* **Arduino Uno R3**
+* **RC_Receiver Library**: Used to receive signals from the RC transmitter.
+* **L298N Motor Driver**
+* **4-Wheel Drive Car Chassis Kit**
+* **Flysky FS-i6X Transmitter and Receiver**
 
+## Code Overview
 
-## Levels
-### _Level 1: Colour Identification (Identify the colour of the cardboard box)_ 
-### _Level 2: Number Identification (Identify the number on the cardboard box)_ 
-### _Level 3: Material Identification (Identify the material of the object)_ 
-### _Level 4: Number and Color Identification (Identify the number and color of the cardboard box)_ 
-### _Level 5: Mathematical Operations (Solve a math problem and choose the correct numbered box)_
+* The **RC Receiver** reads the input from the transmitter using the **A0** and **A1** pins of the Arduino.
+* The receiver's input is mapped to control the speed and direction of the car's motors using PWM signals.
+* The \`mpower()\` function is responsible for setting the direction and speed of the left and right motors.
+* **Digital pins** are used to control the motor direction, while **PWM** pins are used to control the motor speed.
 
-## Project Overview
-**Project Name** : Discovery Driven Numerical, Material, Chromatic Exploration.
+## Wiring
 
-**Team Members** : <a href="https://github.com/Lasitha2001" target="_blank">@Lasitha2001</a>, <a href="https://github.com/JehanPinto" target="_blank">@JehanPinto</a>,<a href="https://github.com/saknarajapakshe" target="_blank">@saknarajapakshe</a>,<a href="https://github.com/gimhanijayamanna" target="_blank">@gimhanijayamanna</a>,<a href="https://github.com/VishwaJaya01" target="_blank">@VishwaJaya01</a> 
+* **Motor A (Left Motor)**: Connected to **pins 2, 3** for direction and **pin 5** for PWM control.
+* **Motor B (Right Motor)**: Connected to **pins 4, 7** for direction and **pin 6** for PWM control.
+* **RC Receiver**: Connected to **A0** and **A1** to receive the joystick inputs from the transmitter.
+
+## How to Use
+
+1. **Clone the repository**:
+
+   \`\`\`bash
+   git clone https://github.com/Lasitha2001/Discovery-Driven-Arduino-Car.git
+   \`\`\`
+
+2. **Upload the code**:
+   * Open the \`.ino\` file in the Arduino IDE.
+   * Connect your Arduino Uno and upload the code.
+
+3. **Connect the hardware**:
+   * Wire the motors and motor driver to the Arduino as described in the wiring section.
+
+4. **Control the car**:
+   * Use the **Flysky FS-i6X transmitter** to control the car's movement.
+
+## Team Members
+
+* [@Lasitha2001](https://github.com/Lasitha2001)
+* [@JehanPinto](https://github.com/JehanPinto)
+* [@saknarajapakshe](https://github.com/saknarajapakshe)
+* [@gimhanijayamanna](https://github.com/gimhanijayamanna)
+* [@VishwaJaya01](https://github.com/VishwaJaya01)
+EOL
+
+# Add the new README.md file to git
+git add README.md
+
+# Commit the changes
+git commit -m "Update README.md with project details"
+
+# Switch back to the main branch
+git checkout main
+
+# Merge the update-readme branch into main
+git merge update-readme
+
+# Push the changes to the remote repository
+git push origin main
+
+# Clean up by deleting the update-readme branch
+git branch -d update-readme
