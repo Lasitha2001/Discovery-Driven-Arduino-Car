@@ -1,10 +1,3 @@
-# Assuming you're in the root directory of your Git repository
-
-# Create a new branch for the README update
-git checkout -b update-readme
-
-# Create the README.md file (or overwrite if it already exists)
-cat > README.md << EOL
 # Discovery-Driven-Arduino-Car
 
 This repository contains the Arduino code for controlling a **4-wheel drive car** using an **RC Receiver** and an **Arduino Uno**. The car is controlled via a **radio transmitter**, allowing smooth forward, backward, and turning movements using PWM signals.
@@ -40,9 +33,10 @@ This repository contains the Arduino code for controlling a **4-wheel drive car*
 
 1. **Clone the repository**:
 
-   \`\`\`bash
+   Run the following command to clone the repository:
+   ```bash
    git clone https://github.com/Lasitha2001/Discovery-Driven-Arduino-Car.git
-   \`\`\`
+   ```
 
 2. **Upload the code**:
    * Open the \`.ino\` file in the Arduino IDE.
@@ -61,19 +55,7 @@ This repository contains the Arduino code for controlling a **4-wheel drive car*
 * [@saknarajapakshe](https://github.com/saknarajapakshe)
 * [@gimhanijayamanna](https://github.com/gimhanijayamanna)
 * [@VishwaJaya01](https://github.com/VishwaJaya01)
-EOL
 
-# Add the new README.md file to git
-git add README.md
-
-# Commit the changes
-git commit -m "Update README.md with project details"
-
-# Switch back to the main branch
-git checkout main
-
-# Merge the update-readme branch into main
-git merge update-readme
 
 # Push the changes to the remote repository
 git push origin main
