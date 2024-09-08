@@ -56,9 +56,3 @@ This repository contains the Arduino code for controlling a **4-wheel drive car*
 * [@gimhanijayamanna](https://github.com/gimhanijayamanna)
 * [@VishwaJaya01](https://github.com/VishwaJaya01)
 
-
-# Push the changes to the remote repository
-git push origin main
-
-# Clean up by deleting the update-readme branch
-git branch -d update-readme
